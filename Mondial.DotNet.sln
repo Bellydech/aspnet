@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mondial.DotNet.Library", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mondial.DotNet.Web", "src\Mondial.DotNet.Web\Mondial.DotNet.Web.csproj", "{E3E267A5-AAE7-4E53-BC3B-9ED8500C9440}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{F24512E5-611F-42E5-B089-45E9A4F997AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mondial.DotNet.Library.Tests", "tests\Mondial.DotNet.Library.Tests\Mondial.DotNet.Library.Tests.csproj", "{151466C8-9414-4483-8AFE-D511B2A73CD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,9 +50,22 @@ Global
 		{E3E267A5-AAE7-4E53-BC3B-9ED8500C9440}.Release|x64.Build.0 = Release|Any CPU
 		{E3E267A5-AAE7-4E53-BC3B-9ED8500C9440}.Release|x86.ActiveCfg = Release|Any CPU
 		{E3E267A5-AAE7-4E53-BC3B-9ED8500C9440}.Release|x86.Build.0 = Release|Any CPU
+		{151466C8-9414-4483-8AFE-D511B2A73CD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{151466C8-9414-4483-8AFE-D511B2A73CD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{151466C8-9414-4483-8AFE-D511B2A73CD8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{151466C8-9414-4483-8AFE-D511B2A73CD8}.Debug|x64.Build.0 = Debug|Any CPU
+		{151466C8-9414-4483-8AFE-D511B2A73CD8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{151466C8-9414-4483-8AFE-D511B2A73CD8}.Debug|x86.Build.0 = Debug|Any CPU
+		{151466C8-9414-4483-8AFE-D511B2A73CD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{151466C8-9414-4483-8AFE-D511B2A73CD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{151466C8-9414-4483-8AFE-D511B2A73CD8}.Release|x64.ActiveCfg = Release|Any CPU
+		{151466C8-9414-4483-8AFE-D511B2A73CD8}.Release|x64.Build.0 = Release|Any CPU
+		{151466C8-9414-4483-8AFE-D511B2A73CD8}.Release|x86.ActiveCfg = Release|Any CPU
+		{151466C8-9414-4483-8AFE-D511B2A73CD8}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{504BED8B-9C20-465C-A818-591B6FE1E45F} = {7150857C-D516-4043-A46D-F7959E462BE9}
 		{E3E267A5-AAE7-4E53-BC3B-9ED8500C9440} = {7150857C-D516-4043-A46D-F7959E462BE9}
+		{151466C8-9414-4483-8AFE-D511B2A73CD8} = {F24512E5-611F-42E5-B089-45E9A4F997AA}
 	EndGlobalSection
 EndGlobal
