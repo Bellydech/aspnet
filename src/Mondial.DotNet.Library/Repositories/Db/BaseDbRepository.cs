@@ -27,6 +27,7 @@ namespace Mondial.DotNet.Library.Repositories.Db
         public void SaveChanges() => DbContext.SaveChanges();
 
         public T Single(int id) => Includes(Context).SingleOrDefault(c => c.Id == id);
+        public T Single(string name) => Includes(Context).FirstOrDefault(c => c.Name.Equals(name));
 
         public IEnumerable<T> GetAll() => Includes(Context);    
         public IEnumerable<T> Find(Func<T, bool> predicate) => 

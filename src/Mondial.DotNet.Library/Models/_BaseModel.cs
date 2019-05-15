@@ -8,6 +8,8 @@ namespace Mondial.DotNet.Library.Models
     {
         public virtual int Id { get; set; }
 
+        public virtual string Name { get; set; }
+
         public virtual bool IsNew => Id <= 0;
 
         public virtual string Display => 

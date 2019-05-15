@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mondial.DotNet.Library.Models
 {
@@ -8,6 +9,13 @@ namespace Mondial.DotNet.Library.Models
         public override int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+
+        [NotMapped]
+        public override string Name 
+        {
+            get { return $"{FirstName} {LastName.ToUpper()}"; }
+        }
+
         public DateTime? DateOfBirth { get; set; }
         public string Image { get; set; }
         public List<Contract> ContractCollection { get; set; } = new List<Contract>();
@@ -38,6 +46,15 @@ namespace Mondial.DotNet.Library.Models
             FirstName = copy.FirstName;
             LastName = copy.LastName;
             DateOfBirth = copy.DateOfBirth;
+        }
+
+        public override dynamic ToDynamic() 
+        {
+            var baseDynamic = base.ToDynamic();
+            baseDynamic.firstname = FirstName;
+            baseDynamic.lastname = LastName;
+            baseDynamic.dateofbirth = DateOfBirth;
+            return baseDynamic;
         }
     }
 }

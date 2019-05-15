@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mondial.DotNet.Library.Models
 {
@@ -13,6 +14,12 @@ namespace Mondial.DotNet.Library.Models
         public int YearFrom {get; set; }
         public int? YearTo { get; set; }
         // YearTo est null s'il s'agit du club actuel de la joueuse
+
+        [NotMapped]
+        public override string Name 
+        {
+            get { return $"Contrat de {Signatory.Name} à {Employer.Name}"; }
+        }
 
         public Contract(Player signatory, Team employer, int yearFrom, int? yearTo)
         {
@@ -41,8 +48,10 @@ namespace Mondial.DotNet.Library.Models
         public override dynamic ToDynamic() 
         {
             var baseDynamic = base.ToDynamic();
-            baseDynamic.player = Signatory;
-            baseDynamic.team = Employer;
+            baseDynamic.player = Signatory?.ToDynamic();
+            // baseDynamic.team = Employer?.ToDynamic();
+            baseDynamic.yearFrom = YearFrom;
+            baseDynamic.yearTo = YearTo;
             return baseDynamic;
         }
     }

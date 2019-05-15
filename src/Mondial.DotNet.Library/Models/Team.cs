@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Mondial.DotNet.Library.Models
 {
@@ -35,6 +36,18 @@ namespace Mondial.DotNet.Library.Models
             Address = copy.Address;
             Latitude = copy.Latitude;
             Longitude = copy.Longitude;
+        }
+
+        public override dynamic ToDynamic()
+        {
+            var baseDynamic = base.ToDynamic();
+            baseDynamic.name = Name;
+            baseDynamic.address = Address;
+            baseDynamic.count = ContractCollection?.Count;
+            //List<Contract> SortedList = ContractCollection.OrderBy(c => c.YearFrom).ToList();
+            // baseDynamic.yearFrom = ContractCollection.Select(c => c.YearFrom);
+            //baseDynamic.contracts = ContractCollection.OrderBy(c => c.YearFrom).Select(c => c.ToDynamic());
+            return baseDynamic;
         }
     }
 }

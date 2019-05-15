@@ -38,6 +38,8 @@ namespace Mondial.DotNet.Library.Repositories.Base
 
         public T Single(int id) => 
             Context.SingleOrDefault(c => c.Id == id);
+        public T Single(string name) => 
+            Context.FirstOrDefault(c => c.Name.Equals(name));
 
 
         public void Update(T entity)
@@ -72,5 +74,9 @@ namespace Mondial.DotNet.Library.Repositories.Base
         public IEnumerable<T> Find(
             Func<T, bool> predicate) => 
             Context.Where(predicate);
+        
+        public IEnumerable<T> GetOrderedBy(
+            Func<T, bool> predicate) => 
+            Context.OrderBy(predicate);
     }
 }

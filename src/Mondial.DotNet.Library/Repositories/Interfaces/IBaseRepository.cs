@@ -12,6 +12,7 @@ namespace Mondial.DotNet.Library.Repositories.Interfaces
         void SaveChanges();
 
         T Single(int id);
+        T Single (string name);
 
         void Update(T entity);
         void Delete(int id);
