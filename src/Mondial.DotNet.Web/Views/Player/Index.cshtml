@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "France 2019 - Liste des joueuses";
+}
+@using Mondial.DotNet.Library.Models
+@model IEnumerable<Player>
+
+<div class="text-center">
+    <h1 class="display-4">Joueuses composant l'Equipe de France à la Coupe du Monde 2019</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Image</th>
+            <th scope="col">Date de naissance</th>
+            <th scope="col">Action...</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var player in Model)
+            {
+                var dateString = player.DateOfBirth.HasValue ? player.DateOfBirth.Value.ToShortDateString() : "";
+            <tr>
+                <th scope="row">@player.Id</th>
+                <td>@player.FirstName</td>
+                <td>@player.LastName</td>
+                <td><img src=@player.Image alt="Image" height="48px"/></td>
+                <td>@dateString</td>
+                <td>
+                    <a class="btn btn-outline-primary" asp-controller="Player" asp-action="Edit" asp-route-id="@player.Id">Modifier</a>
+                    <a class="btn btn-outline-danger" asp-controller="Player" asp-action="Delete" asp-route-id="@player.Id">Supprimer</a>
+                </td>
+            </tr> 
+            }
+        </tbody>
+    </table>
+</div>

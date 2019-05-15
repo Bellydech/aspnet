@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "France 2019 - Liste des clubs";
+}
+@using Mondial.DotNet.Library.Models
+@model IEnumerable<Team>
+
+<div class="text-center">
+    <h1 class="display-4">Clubs ayant accueilli les joueuses de l'Equipe de France</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Logo</th>
+            <th scope="col">Adresse</th>
+            <th scope="col">Coordonnées</th>
+            <th scope="col">Action...</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var team in Model)
+            {
+                var location = "Lat: " + @team.Latitude + " long: " + @team.Longitude;
+            <tr>
+                <td>@team.Id</td>
+                <td>@team.Name</td>
+                <td><img src=@team.Flag alt="Ecusson" height="48px"/></td>
+                <td>@team.Address</td>
+                <td>@location</td>
+                <td>
+                    <a class="btn btn-outline-primary" asp-controller="Team" asp-action="Edit" asp-route-id="@team.Id">Modifier</a>
+                    <a class="btn btn-outline-danger" asp-controller="Team" asp-action="Delete" asp-route-id="@team.Id">Supprimer</a>
+                </td>
+            </tr> 
+            }
+        </tbody>
+    </table>
+</div>

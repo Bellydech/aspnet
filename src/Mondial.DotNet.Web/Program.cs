@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Mondial.DotNet.Library.Context;
 
 namespace Mondial.DotNet.Web
 {
@@ -14,7 +16,19 @@ namespace Mondial.DotNet.Web
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            var host = CreateWebHostBuilder(args).Build();
+
+            using (var scope = host.Services.CreateScope())
+            {
+                var seed = 
+                    scope.ServiceProvider.GetService<SeedData>();
+                seed.DropCreateDatabase();
+                seed.AddPlayers();
+                seed.AddTeams();
+                seed.AddContracts();
+            }
+
+            host.Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

@@ -34,6 +34,30 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Joueuses</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-controller="Player" asp-action="Index">Toutes</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-controller="Player" asp-action="Edit">Ajouter...</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Clubs</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-controller="Team" asp-action="Index">Tous</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-controller="Team" asp-action="Edit">Ajouter...</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Contrats</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-controller="Contract" asp-action="Index">Tous</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-controller="Contract" asp-action="Edit">Ajouter...</a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>

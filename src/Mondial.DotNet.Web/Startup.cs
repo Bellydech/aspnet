@@ -9,6 +9,11 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Mondial.DotNet.Library.Repositories.Interfaces;
+using Mondial.DotNet.Library.Repositories.InMemory;
+using Mondial.DotNet.Library.Context;
+using Microsoft.EntityFrameworkCore;
+using Mondial.DotNet.Library.Repositories.Db;
 
 namespace Mondial.DotNet.Web
 {
@@ -31,8 +36,32 @@ namespace Mondial.DotNet.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            // Injection de dépendances
+            /* Sans base de données concrète : 
+            services.AddSingleton<IPlayerRepository, InMemoryPlayerRepository>();
+            services.AddSingleton<ITeamRepository, InMemoryTeamRepository>();
+            services.AddSingleton<IContractRepository, InMemoryContractRepository>();
+            */
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            // Injecter EF + Sqlite
+            services.AddDbContext<ApplicationDbContext>(builder => 
+                // Dans les params d'option, préciser que la db est Sqlite
+                builder.UseSqlite(
+                    // Préciser où trouver la chaine de connexion
+                    Configuration.GetConnectionString("DefaultConnection"))
+                );
+
+            // Injecter le middleware ASP.NET Core MVC v2.2
+            services
+                .AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddScoped<IPlayerRepository, DbContextPlayerRepository>();
+            services.AddScoped<ITeamRepository, DbContextTeamRepository>();
+            services.AddScoped<IContractRepository, DbContextContractRepository>();
+
+            // Mapping du SeedData
+            services.AddScoped<SeedData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

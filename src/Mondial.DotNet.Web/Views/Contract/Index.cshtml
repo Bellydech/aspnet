@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "France 2019 - Liste des contrats";
+}
+@using Mondial.DotNet.Library.Models
+@model IEnumerable<Contract>
+
+<div class="text-center">
+    <h1 class="display-4">Contrats des joueuses de l'Equipe de France 2019</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Joueuse</th>
+            <th scope="col">Club</th>
+            <th scope="col">Période</th>
+            <th scope="col">Action...</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var contract in Model)
+            {
+                var period = @contract.YearFrom + " - " + @contract.YearTo;
+            <tr>
+                <td>@contract.Id</td>
+                <td>@contract.Signatory?.LastName</td>
+                <td>@contract.Employer?.Name</td>
+                <td>@period</td>
+                <td>
+                    <a class="btn btn-outline-primary" asp-controller="Contract" asp-action="Edit" asp-route-id="@contract.Id">Modifier</a>
+                    <a class="btn btn-outline-danger" asp-controller="Contract" asp-action="Delete" asp-route-id="@contract.Id">Supprimer</a>
+                </td>
+            </tr> 
+            }
+        </tbody>
+    </table>
+</div>

@@ -15,13 +15,14 @@ namespace Mondial.DotNet.Library.Models
         
         public override string ToString() => Display;
 
-        /*public virtual dynamic ToDynamic()
+        public virtual void Map(T copy){}
+
+        public virtual dynamic ToDynamic()
         {
             dynamic response = new ExpandoObject();
             response.id = Id;
-            response.name = Name;
             response.fetch = DateTime.Now;
             return response;
-        }*/
+        }
     }
 }
