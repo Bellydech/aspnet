@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "France 2019 - Edition d'un contrat";
+    ViewData["Title"] = "Edition d'un contrat";
 }
 @using Mondial.DotNet.Library.Models
 @using Mondial.DotNet.Library.Repositories.Interfaces
@@ -7,7 +7,7 @@
 @inject IPlayerRepository _playerRepository
 @inject ITeamRepository _teamRepository
 
-<h1 class="display-4">Edition d'une contrat (formulaire)</h1>
+<h1 class="display-4">Edition d'un contrat (formulaire)</h1>
 
 <div class="row">
     <div class="col-12">
@@ -23,11 +23,11 @@
                     // Création d'une liste
                     new SelectList(
                         // Données de la liste
-                        _playerRepository.GetAll(), 
+                        _playerRepository.GetAll().OrderBy(player => player.LastName), 
                         // Champ correspondant à l'id
                         "Id", 
                         // Champ correspondant au texte affiché
-                        "LastName"),
+                        "Name"),
                         // Item par défaut
                         "Sélectionnez une joueuse...",
                         // Classe CSS
@@ -43,7 +43,7 @@
                     // Création d'une liste
                     new SelectList(
                         // Données de la liste
-                        _teamRepository.GetAll(), 
+                        _teamRepository.GetAll().OrderBy(team => team.Name), 
                         // Champ correspondant à l'id
                         "Id", 
                         // Champ correspondant au texte affiché
@@ -57,12 +57,12 @@
 
             <div class="form-group">
                 <label for="contractYearFrom">Année du début du contrat</label>
-                <input id="contractYearFrom" type="text" class="form-control" placeholder="YearFrom" value="@Model?.YearFrom" asp-for="YearFrom"/>
+                <input id="contractYearFrom" type="text" class="form-control" placeholder="Année de début du contrat" value="@Model?.YearFrom" asp-for="YearFrom"/>
             </div>
 
             <div class="form-group">
                 <label for="contractYearTo">Année de fin du contrat</label>
-                <input id="contractYearTo" type="text" class="form-control" placeholder="YearTo" value="@Model?.YearTo" asp-for="YearTo"/>
+                <input id="contractYearTo" type="text" class="form-control" placeholder="Année de fin du contrat" value="@Model?.YearTo" asp-for="YearTo"/>
             </div>
 
             <button type="submit" class="btn btn-primary">Valider</button>

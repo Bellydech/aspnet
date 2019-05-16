@@ -8,6 +8,7 @@ using Mondial.DotNet.Web.Models;
 using Mondial.DotNet.Library.Models;
 using Mondial.DotNet.Library.Repositories.InMemory;
 using Mondial.DotNet.Library.Repositories.Interfaces;
+using Mondial.DotNet.Web.Controllers.Base;
 
 namespace Mondial.DotNet.Web.Controllers
 {
@@ -18,5 +19,7 @@ namespace Mondial.DotNet.Web.Controllers
         {
             
         }
+
+        public override IActionResult Index() => View(Repository.GetAll().OrderBy(contract => contract.YearFrom));
     }
 }

@@ -10,7 +10,7 @@ using Mondial.DotNet.Library.Repositories.InMemory;
 using Mondial.DotNet.Library.Repositories.Interfaces;
 using System.Dynamic;
 
-namespace Mondial.DotNet.Web.Controllers
+namespace Mondial.DotNet.Web.Controllers.Base
 {
     public abstract class BaseController<T, TRepo> : Controller 
         where T : BaseModel<T>
@@ -62,7 +62,7 @@ namespace Mondial.DotNet.Web.Controllers
         }
 
         [HttpGet]
-        [Route("api/[controller]/status/{id}")] // redéfinition Route
+        [Route("api/[controller]/{id}")] // redéfinition Route
         public virtual JsonResult GetById(int id)
         {
             var entity = Repository.Single(id);

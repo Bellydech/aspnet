@@ -7,7 +7,7 @@ namespace Mondial.DotNet.Library.Models
     public class Team : BaseModel<Team>
     {
         public override int Id { get; set; }
-        public string Name{ get; set; }
+        public override string Name{ get; set; }
         public string Flag { get; set; }
         public string Address { get; set; }
         // Coordonnées GPS :
@@ -43,10 +43,8 @@ namespace Mondial.DotNet.Library.Models
             var baseDynamic = base.ToDynamic();
             baseDynamic.name = Name;
             baseDynamic.address = Address;
-            baseDynamic.count = ContractCollection?.Count;
-            //List<Contract> SortedList = ContractCollection.OrderBy(c => c.YearFrom).ToList();
-            // baseDynamic.yearFrom = ContractCollection.Select(c => c.YearFrom);
-            //baseDynamic.contracts = ContractCollection.OrderBy(c => c.YearFrom).Select(c => c.ToDynamic());
+            baseDynamic.latitude = Latitude;
+            baseDynamic.longitude = Longitude;
             return baseDynamic;
         }
     }

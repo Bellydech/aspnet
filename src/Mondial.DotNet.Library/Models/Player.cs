@@ -51,9 +51,9 @@ namespace Mondial.DotNet.Library.Models
         public override dynamic ToDynamic() 
         {
             var baseDynamic = base.ToDynamic();
-            baseDynamic.firstname = FirstName;
-            baseDynamic.lastname = LastName;
-            baseDynamic.dateofbirth = DateOfBirth;
+            baseDynamic.firstName = FirstName;
+            baseDynamic.lastName = LastName;
+            baseDynamic.dateOfBirth = DateOfBirth.Value.ToShortDateString();
             return baseDynamic;
         }
     }

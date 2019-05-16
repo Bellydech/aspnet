@@ -1,20 +1,21 @@
 ﻿@{
-    ViewData["Title"] = "France 2019 - Liste des joueuses";
+    ViewData["Title"] = "Liste des joueuses";
 }
 @using Mondial.DotNet.Library.Models
 @model IEnumerable<Player>
 
+<h1 class="display-4">Joueuses composant l'Équipe de France à la Coupe du Monde 2019</h1>
+<p>Ci-dessous, la liste des joueuses sélectionnées en Équipe de France pour disputer la Coupe du Monde 2019 (ordre alphabétique).</p>
+
 <div class="text-center">
-    <h1 class="display-4">Joueuses composant l'Equipe de France à la Coupe du Monde 2019</h1>
     <table class="table table-striped">
         <thead>
             <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Prénom</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Image</th>
-            <th scope="col">Date de naissance</th>
-            <th scope="col">Action...</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Image</th>
+                <th scope="col">Date de naissance</th>
+                <th scope="col">Action...</th>
             </tr>
         </thead>
         <tbody>
@@ -22,9 +23,8 @@
             {
                 var dateString = player.DateOfBirth.HasValue ? player.DateOfBirth.Value.ToShortDateString() : "";
             <tr>
-                <th scope="row">@player.Id</th>
+                <td >@player.LastName.ToUpper()</td>
                 <td>@player.FirstName</td>
-                <td>@player.LastName</td>
                 <td><img src=@player.Image alt="Image" height="48px"/></td>
                 <td>@dateString</td>
                 <td>

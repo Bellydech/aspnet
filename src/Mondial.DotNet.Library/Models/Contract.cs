@@ -49,7 +49,7 @@ namespace Mondial.DotNet.Library.Models
         {
             var baseDynamic = base.ToDynamic();
             baseDynamic.player = Signatory?.ToDynamic();
-            // baseDynamic.team = Employer?.ToDynamic();
+            baseDynamic.team = Employer?.ToDynamic();
             baseDynamic.yearFrom = YearFrom;
             baseDynamic.yearTo = YearTo;
             return baseDynamic;

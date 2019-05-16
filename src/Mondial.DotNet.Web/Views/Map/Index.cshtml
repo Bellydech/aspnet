@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Cartographie";
+}
+
+@section leaflet
+{
+    <link rel="stylesheet" href="/css/leaflet.css"/>
+    <script src="/js/leaflet.js"></script>
+}
+
+@using Mondial.DotNet.Library.Models
+@model dynamic
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div id="mapid"></div>
+
+<script type="text/javascript">
+    var mymap = L.map('mapid').setView([46.2901, 4.3135], 5);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '<strong>Julien Pons</strong> | OpenStreetMap',
+    minZoom: 5,
+    maxZoom: 18
+    }).addTo(mymap);
+
+    @foreach (var team in Model){
+       <text>
+            var locationIcon = L.icon({
+            iconUrl: '/images/ecussons/@team.Flag',
+            iconSize: [48, 48],
+            iconAnchor:   [24, 48], // point of the icon which will correspond to marker's location
+            popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+            });
+            
+            var marker = L.marker(
+                [@team.Latitude, @team.Longitude], 
+                    {icon: locationIcon}
+                ).addTo(mymap);
+
+            var text = "<center><strong>@team.Name</strong></center><br><em>@team.Address</em>";
+        </text>
+            @foreach(var c in @team.contracts)
+            {
+                <text>
+                    text += "<br>@c.firstname @c.lastname (@c.yearFrom - @c.yearTo)"
+                </text>
+            }
+            <text>
+                marker.bindPopup(text);
+            </text>
+    }
+</script>

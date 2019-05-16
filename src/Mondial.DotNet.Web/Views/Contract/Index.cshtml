@@ -1,15 +1,16 @@
 ﻿@{
-    ViewData["Title"] = "France 2019 - Liste des contrats";
+    ViewData["Title"] = "Liste des contrats";
 }
 @using Mondial.DotNet.Library.Models
 @model IEnumerable<Contract>
 
+
+<h1 class="display-4">Contrats des joueuses de l'Équipe de France de la Coupe du Monde 2019</h1>
+<p>Liste des contrats liant les joueuses de l'Équipe de France de la Coupe du Monde 2019 avec les clubs (historique). (Ordre : par ancienneté du début de contrat)</p>
 <div class="text-center">
-    <h1 class="display-4">Contrats des joueuses de l'Equipe de France 2019</h1>
     <table class="table table-striped">
         <thead>
             <tr>
-            <th scope="col">Id</th>
             <th scope="col">Joueuse</th>
             <th scope="col">Club</th>
             <th scope="col">Période</th>
@@ -21,7 +22,6 @@
             {
                 var period = @contract.YearFrom + " - " + @contract.YearTo;
             <tr>
-                <td>@contract.Id</td>
                 <td>@contract.Signatory?.Name</td>
                 <td>@contract.Employer?.Name</td>
                 <td>@period</td>

@@ -36,13 +36,6 @@ namespace Mondial.DotNet.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            // Injection de dépendances
-            /* Sans base de données concrète : 
-            services.AddSingleton<IPlayerRepository, InMemoryPlayerRepository>();
-            services.AddSingleton<ITeamRepository, InMemoryTeamRepository>();
-            services.AddSingleton<IContractRepository, InMemoryContractRepository>();
-            */
-
             // Injecter EF + Sqlite
             services.AddDbContext<ApplicationDbContext>(builder => 
                 // Dans les params d'option, préciser que la db est Sqlite
@@ -62,6 +55,11 @@ namespace Mondial.DotNet.Web
 
             // Mapping du SeedData
             services.AddScoped<SeedData>();
+
+            // Séparateur des nombres décimaux : "." et non pas ","
+            System.Globalization.CultureInfo customCulture = (System.Globalization.CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
+            customCulture.NumberFormat.NumberDecimalSeparator = ".";
+            System.Threading.Thread.CurrentThread.CurrentCulture = customCulture; 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

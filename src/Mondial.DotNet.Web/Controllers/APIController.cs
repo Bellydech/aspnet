@@ -8,31 +8,27 @@ using Mondial.DotNet.Web.Models;
 using Mondial.DotNet.Library.Models;
 using Mondial.DotNet.Library.Repositories.InMemory;
 using Mondial.DotNet.Library.Repositories.Interfaces;
+using Mondial.DotNet.Web.Controllers.Base;
 using System.Dynamic;
 
 namespace Mondial.DotNet.Web.Controllers
 {
-    public class APIController : Controller
+    public class APIController : BaseDataController
     {
-        protected readonly IContractRepository _contractRepository;
-        protected readonly IPlayerRepository _playerRepository;
-        protected readonly ITeamRepository _teamRepository;
 
-         public APIController(IContractRepository contractRepository, IPlayerRepository playerRepository, ITeamRepository teamRepository)
+         public APIController(IContractRepository contractRepository, IPlayerRepository playerRepository, ITeamRepository teamRepository): base(contractRepository, playerRepository, teamRepository)
         {
-            _contractRepository = contractRepository;
-            _playerRepository = playerRepository;
-            _teamRepository = teamRepository;
+
         }
 
         [HttpGet]
-        [Route("api/dev/test")]
-        public virtual JsonResult Test()
+        [Route("api/TeamsContractsDetails")]
+        public JsonResult Test()
         {
             var allDyn = _teamRepository.GetAll()
-                .Select(team => new { team.Name, contracts = team.ContractCollection.OrderBy(contract => contract.YearFrom).Join(
+                .Select(team => new { team.Name, team.Address, team.Latitude, team.Longitude, contracts = team.ContractCollection.OrderBy(contract => contract.YearFrom).Join(
                     _playerRepository.GetAll(), contract => contract.Signatory, player => player,
-                    (contract, player) => new {yearfrom = contract.YearFrom, yearTo = contract.YearTo, lastname = player.LastName})
+                    (contract, player) => new {contract.Id, contract.YearFrom, contract.YearTo, player = player.ToDynamic()})
                     })
                 .ToList();
             return Json(allDyn);
