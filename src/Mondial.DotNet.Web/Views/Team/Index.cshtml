@@ -6,7 +6,7 @@
 
 
 <h1 class="display-4">Clubs ayant accueilli les joueuses de l'Équipe de France de la Coupe du Monde 2019</h1>
-<p>Ci-dessous, tous les clubs ayant accueilli au moins une joueuse de l'Équipe de France de la Coupe du Monde 2019 (ordre alphabétique).
+<p>Ci-dessous, tous les clubs ayant accueilli au moins une <a href="/Player">joueuse</a> de l'Équipe de France de la Coupe du Monde 2019 (ordre alphabétique).
 <div class="text-center">
     <table class="table table-striped">
         <thead>
@@ -24,7 +24,7 @@
                 var location = "Latitude : " + @team.Latitude + " Longitude : " + @team.Longitude;
             <tr>
                 <td>@team.Name</td>
-                <td><img src="/images/ecussons/@team.Flag" alt="Ecusson de @team.Name" height="48px"/></td>
+                <td><img src="@team.Flag" alt="Ecusson de @team.Name" height="48px"/></td>
                 <td>@team.Address</td>
                 <td>@location</td>
                 <td>

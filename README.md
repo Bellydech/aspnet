@@ -1,8 +1,12 @@
 # Projet ASP.Net
 Le git de mon projet ASP.Net sur la Coupe du Monde de football féminin 2019.
 
+# Mises à jour
+**Dernière mise à jour : jeudi 16/05 à 20:30**
+
 ## Avant-propos
 Toutes les parties du sujet ont été traitées. Ci-dessous, quelques précisions sur les différentes pages et fonctionnalités de l'application. (Ce récapitulatif ne fait pas absolument pas état de toutes les classes utilisées mais uniquement de quelques petits éléments de certaines.)
+> Note : la partie `InMemory` a été volontairement laissée. Néanmoins, elle est inutile pour le bon fonctionnement du programme, son seul but a été de tester le modèle (dossier `tests`).
 
 ## Modèles
 Trois modèles ont été crées afin de répondre au sujet :
@@ -24,10 +28,11 @@ Voici les liens utiles pour accéder aux listes et formulaires d'édition des mo
 
 ## API
 L'API demandée a été faite. D'autres API sont également disponibles :
-    - `/api/[controller]/status` : fournit la date actuelle et le nom du contrôleur.
-    - `/api/[controller]/{id}` : fournit les informations de l'élément d'id `{id}` du contrôleur associé.
-    - `/api/[controller]` : fournit les informations de tous les éléments du contrôleur associé.
+- `/api/[controller]/status` : fournit la date actuelle et le nom du contrôleur.
+- `/api/[controller]/{id}` : fournit les informations de l'élément d'id `{id}` du contrôleur associé.
+- `/api/[controller]` : fournit les informations de tous les éléments du contrôleur associé.
 
-L'API désirée est obenue grâce au contrôleur `APIController` qui va effectuer les opérations de jointure nécessaires. L'adresse est la suivante : `/api/TeamsContractsDetails`. Cette API liste tous les clubs, avec leurs infos, ainsi que la liste des contrats associés au club (trié selon l'ancienneté du début de contrat) avec les infos de la joueuse ayant signé le contrat.
+L'API désirée est obenue grâce au contrôleur `APIController` qui va effectuer les opérations de jointure nécessaires. L'adresse est la suivante : `/api/TeamsContractsDetails`. Cette API liste tous les clubs, avec leurs infos, ainsi que la liste des contrats associés à chaque club (la liste des contrats est triée selon l'ancienneté du début de contrat) avec les infos de la joueuse ayant signé le contrat.
 
 ## Cartographie
+Une cartographie des clubs a été réalisée à l'adresse `/Map`. Cette cartographie situe les clubs selon leurs coordonnées GPS. En cas de clic sur l'écusson d'un club, une fenêtre pop-up s'affiche avec le nom et l'adresse du club. Cette fenêtre liste également toutes les joueuses ayant joué pour ce club en précisant la période associée.

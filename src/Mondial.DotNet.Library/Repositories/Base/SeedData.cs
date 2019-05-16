@@ -66,27 +66,27 @@ namespace Mondial.DotNet.Library.Context
             if(_dbContext.TeamCollection.Any()) return;
             var teams = new List<Team>
             {
-                new Team("Olympique lyonnais", "olympique-lyonnais.png", "67 Rue Sully, 69150 Décines-Charpieu", 45.76482861073421, 4.976699352264403),
-                new Team("EA Guingamp", "ea-guingamp.png", "1 Rue Joseph le Brix, Saint-Brieuc, Bretagne", 48.5082, -2.74734),
-                new Team("Arsenal WFC", "arsenal-wfc.png", "Boreham Wood Football Club, Broughinge Road, Hertsmere WD6 5AL", 51.661874957873, 0.272533893585205),
-                new Team("Montpellier HSC", "montpellier-hsc.png", "Stade Jules Rimet, 34160 Sussargues ", 4.00899, 43.69855),
-                new Team("Paris Saint-Germain", "paris-saint-germain.png", "20 Avenue du Général Sarrail, 75016 Paris", 48.84332491020588, 2.252926826477051),
-                new Team("Atlético de Madrid", "atletico-madrid.png", "Campos de Fútbol Cerro del Espino, Avenida del Príncipe de Asturias, 28221 Majadahonda", 40.45831138789836, -3.8601279258728),
-                new Team("Paris FC", "paris-fc.png", "2 Rue Gutenberg, 91070 Bondoufle", 48.619236282568636, 2.391870617866516),
-                new Team("Dijon FCO", "dijon-fco.png", "Place Gaston Gérard, Dijon", 47.323, 5.065339999999992),
-                new Team("FC Fleury 91", "fc-fleury-91.png", "Stade Auguste Gentelet, Rue des Chaqueux, 91700 Fleury-Mérogis", 48.633759436686546, 2.36356258392334),
-                new Team("Girondins de Bordeaux", "girondins-bordeaux.png", "Rue Ferdinand de Lesseps, 33110 Le Bouscat", 44.8718, -0.616823999999951),
-                new Team("AS Saint-Etienne", "asse.png", "Stade Léon-Nautin, Boulevard Thiers, 42000 Saint-Étienne", 45.4618854, 4.3838897),
-                new Team("FC Barcelone", "fc-barcelone.png", "Sant Joan Despí, Catalunya", 41.3668, 2.0570299999999406),
-                new Team("VfL Wolfsbourg", "vfl-wolfsbourg.png", "AOK Stadion, Allerpark, 38448 Wolfsburg", 52.4345833, 10.8075),
-                new Team("US Compiègne CO", "us-compiegne-co.png", "14 Rue Albert Robida, 60200 Compiègne", 49.42335502641003, 2.8433561325073238),
-                new Team("Saint-Memmie Olympique", "saint-memmie-olympique.png", "Rue des Fontaines, Saint-Memmie, Grand-Est", 48.9549, 4.391110000000026),
-                new Team("Olympique de Marseille", "olympique-marseille.png", "94 Rue Jules Isaac, Marseille 9e Arrondissement, Provence-Alpes-Côte d'Azur", 43.2514, 5.40115000000003),
-                new Team("FC Rouen", "fc-rouen.png", "2 Rue Porte de Diane, Le Petit-Quevilly, Normandie", 49.4269, 1.0511699999999564),
-                new Team("Toulouse FC", "toulouse-fc.png", "112 Chemin des Côtes de Pech David, 31400 Toulouse", 43.562248151413506, 1.4481568336486816),
-                new Team("CNFE Clairefontaine", "cnfe-clairefontaine.png", "Centre national de formation et d'entraînement de Clairefontaine, Chemin des Bruyères, 78120 Clairefontaine-en-Yvelines", 48.616158085279075, 1.9221246242523196),
-                new Team("FF Issy", "ff-issy.png", "5 Avenue Jean Bouin, Issy-les-Moulineaux, Île-de-France", 48.8253, 2.2649099999999858),
-                new Team("FCF Hénin-Beaumont", "fcf-henin-beaumont.png", "Boulevard du Président Salvador Allende, Hénin-Beaumont", 50.4196, 2.934979999999996)
+                new Team("Olympique lyonnais", "/images/ecussons/olympique-lyonnais.png", "67 Rue Sully, 69150 Décines-Charpieu", 45.76482861073421, 4.976699352264403),
+                new Team("EA Guingamp", "/images/ecussons/ea-guingamp.png", "1 Rue Joseph le Brix, Saint-Brieuc, Bretagne", 48.5082, -2.74734),
+                new Team("Arsenal WFC", "/images/ecussons/arsenal-wfc.png", "Boreham Wood Football Club, Broughinge Road, Hertsmere WD6 5AL", 51.661874957873, 0.272533893585205),
+                new Team("Montpellier HSC", "/images/ecussons/montpellier-hsc.png", "Stade Jules Rimet, 34160 Sussargues ", 4.00899, 43.69855),
+                new Team("Paris Saint-Germain", "/images/ecussons/paris-saint-germain.png", "20 Avenue du Général Sarrail, 75016 Paris", 48.84332491020588, 2.252926826477051),
+                new Team("Atlético de Madrid", "/images/ecussons/atletico-madrid.png", "Campos de Fútbol Cerro del Espino, Avenida del Príncipe de Asturias, 28221 Majadahonda", 40.45831138789836, -3.8601279258728),
+                new Team("Paris FC", "/images/ecussons/paris-fc.png", "2 Rue Gutenberg, 91070 Bondoufle", 48.619236282568636, 2.391870617866516),
+                new Team("Dijon FCO", "/images/ecussons/dijon-fco.png", "Place Gaston Gérard, Dijon", 47.323, 5.065339999999992),
+                new Team("FC Fleury 91", "/images/ecussons/fc-fleury-91.png", "Stade Auguste Gentelet, Rue des Chaqueux, 91700 Fleury-Mérogis", 48.633759436686546, 2.36356258392334),
+                new Team("Girondins de Bordeaux", "/images/ecussons/girondins-bordeaux.png", "Rue Ferdinand de Lesseps, 33110 Le Bouscat", 44.8718, -0.616823999999951),
+                new Team("AS Saint-Etienne", "/images/ecussons/asse.png", "Stade Léon-Nautin, Boulevard Thiers, 42000 Saint-Étienne", 45.4618854, 4.3838897),
+                new Team("FC Barcelone", "/images/ecussons/fc-barcelone.png", "Sant Joan Despí, Catalunya", 41.3668, 2.0570299999999406),
+                new Team("VfL Wolfsbourg", "/images/ecussons/vfl-wolfsbourg.png", "AOK Stadion, Allerpark, 38448 Wolfsburg", 52.4345833, 10.8075),
+                new Team("US Compiègne CO", "/images/ecussons/us-compiegne-co.png", "14 Rue Albert Robida, 60200 Compiègne", 49.42335502641003, 2.8433561325073238),
+                new Team("Saint-Memmie Olympique", "/images/ecussons/saint-memmie-olympique.png", "Rue des Fontaines, Saint-Memmie, Grand-Est", 48.9549, 4.391110000000026),
+                new Team("Olympique de Marseille", "/images/ecussons/olympique-marseille.png", "94 Rue Jules Isaac, Marseille 9e Arrondissement, Provence-Alpes-Côte d'Azur", 43.2514, 5.40115000000003),
+                new Team("FC Rouen", "/images/ecussons/fc-rouen.png", "2 Rue Porte de Diane, Le Petit-Quevilly, Normandie", 49.4269, 1.0511699999999564),
+                new Team("Toulouse FC", "/images/ecussons/toulouse-fc.png", "112 Chemin des Côtes de Pech David, 31400 Toulouse", 43.562248151413506, 1.4481568336486816),
+                new Team("CNFE Clairefontaine", "/images/ecussons/cnfe-clairefontaine.png", "Centre national de formation et d'entraînement de Clairefontaine, Chemin des Bruyères, 78120 Clairefontaine-en-Yvelines", 48.616158085279075, 1.9221246242523196),
+                new Team("FF Issy", "/images/ecussons/ff-issy.png", "5 Avenue Jean Bouin, Issy-les-Moulineaux, Île-de-France", 48.8253, 2.2649099999999858),
+                new Team("FCF Hénin-Beaumont", "/images/ecussons/fcf-henin-beaumont.png", "Boulevard du Président Salvador Allende, Hénin-Beaumont", 50.4196, 2.934979999999996)
             };
             teams.ForEach(team => _teamRepository.Update(team));
             _teamRepository.SaveChanges();

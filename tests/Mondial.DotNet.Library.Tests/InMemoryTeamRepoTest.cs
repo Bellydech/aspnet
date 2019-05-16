@@ -32,8 +32,8 @@ namespace Mondial.DotNet.Library.Tests
         {
             var teamRepo = TeamRepoFactory.Create();
 
-            var ol = teamRepo.Single(1);
-            Assert.True(ol.Name == "Olympique Lyonnais");
+            var ol = teamRepo.Single("Olympique lyonnais");
+            Assert.True(ol.Name == "Olympique lyonnais");
 
             var fake = teamRepo.Single(42);
             Assert.True(fake == null);

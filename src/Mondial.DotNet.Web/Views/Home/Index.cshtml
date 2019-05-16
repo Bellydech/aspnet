@@ -4,3 +4,24 @@
 
 <h1 class="display-4">Projet de Julien Pons</h1>
 <p>Bienvenue sur mon projet !</p>
+<p>Ce projet répond à toutes les questions posées, y compris la question bonus. Voici les liens de l'application (disponibles dans la barre de navigation) :</p>
+<ul>
+    <li>
+        Modèles et gestion des modèles
+        <ul>
+            <li><a href="/Player">Liste des joueuses</a> (<a href="/Player/Edit">ajout d'une joueuse</a>)</li>
+            <li><a href="/Team">Liste des clubs</a> (<a href="/Team/Edit">ajout d'un club</a>)</li>
+            <li><a href="/Contract">Liste des contrats</a> (<a href="/Contract/Edit">création d'un contrat</a>)</li>
+        </ul>
+    </li>
+    <li>
+        API
+        <ul>
+            <li><code>/api/[controller]/status</code> : fournit la date actuelle et le nom du contrôleur.</li>
+            <li><code>/api/[controller]/{id}</code> : fournit les informations de l'élément d'id <code>{id}</code> du contrôleur associé.</li>
+            <li><code>/api/[controller]</code> : fournit les informations de tous les éléments du contrôleur associé.</li>
+            <li><a href="/api/TeamsContractsDetails">API demandée</a> : liste tous les clubs, avec leurs infos, ainsi que la liste des contrats associés à chaque club (la liste des contrats est triée selon l'ancienneté du début de contrat) avec les infos de la joueuse ayant signé le contrat.</li>
+        </ul>
+    </li>
+    <li><a href="/Map">Cartographie</a> : situe les clubs selon leurs coordonnées GPS. En cas de clic sur l'écusson d'un club, une fenêtre pop-up s'affiche avec le nom et l'adresse du club. Cette fenêtre liste également toutes les joueuses ayant joué pour ce club en précisant la période associée.</li>
+</ul>
